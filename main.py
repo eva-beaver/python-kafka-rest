@@ -41,6 +41,8 @@ class Main(object):
 
     def run(self):
         starttime = time.time()
+        self.producerKafka.send_page_data("Hellow World!")
+        self.logger.info("Published page data to Kafka")
         self.logger.info("Complete")
 
 if __name__ == "__main__":
