@@ -1,7 +1,7 @@
 from kafka import KafkaProducer
 import json
 
-class MyKafka(object):
+class ProducerKafka(object):
 
     def __init__(self, kafka_brokers):
         self.producer = KafkaProducer(

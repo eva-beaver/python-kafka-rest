@@ -1,8 +1,10 @@
-from kafkaproducer import KafkaProducer
+from ProducerKafka import ProducerKafka
 import logging
 import time
 import os
 from logging.config import dictConfig
+
+from test import MyTest
 
 class Main(object):
 
@@ -33,7 +35,13 @@ class Main(object):
         dictConfig(logging_config)
         self.logger.info("Initializing Kafka Producer")
         self.logger.info("KAFKA_BROKERS={0}".format(kafka_brokers))
-        self.kafkaproducer = KafkaProducer(kafka_brokers)
+        self.mytest = MyTest(kafka_brokers)
+        self.producerKafka = ProducerKafka(kafka_brokers)
+        self.logger.info("Initialized Kafka Producer")
+
+    def run(self):
+        starttime = time.time()
+        self.logger.info("Complete")
 
 if __name__ == "__main__":
     logging.info("Initializing")
